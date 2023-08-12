@@ -7,4 +7,11 @@ function theme_enqueue_styles() {
   wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style')
 );
 }
+
+//SVGサポートパーサー
+function arrow_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'arrow_mime_types');
 ?>
